@@ -1,0 +1,1238 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GENSEC // PERSONNEL RECORD // FELWINTER</title>
+
+<style>
+/* =========================================================
+   SCP // CORRUPTED PERSONNEL DATABASE
+   SUBJECT: RIOS BELMONT // "FELWINTER"
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+:root {
+    --black: #030405;
+    --dark: #080a0b;
+    --panel: #0b0e0f;
+    --green: #b7ffbf;
+    --green-dim: #587c5d;
+    --red: #ff3344;
+    --red-dark: #6e1119;
+    --white: #d9dedb;
+    --gray: #737a77;
+    --blue: #76bfff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at center, rgba(80,255,100,.035), transparent 60%),
+        #020303;
+    color: var(--green);
+    font-family: "Share Tech Mono", monospace;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   CRT / SCANLINES
+   ========================================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.025) 0px,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    mix-blend-mode: overlay;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9997;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 50%,
+            rgba(0,0,0,.75) 100%
+        );
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.file {
+    position: relative;
+    width: min(1150px, 94%);
+    margin: 45px auto;
+    border: 1px solid #304936;
+    background: rgba(4,7,6,.94);
+    box-shadow:
+        0 0 40px rgba(60,255,90,.035),
+        inset 0 0 70px rgba(50,255,70,.025);
+    overflow: hidden;
+}
+
+/* =========================================================
+   GLITCH LAYERS
+   ========================================================= */
+
+.glitch {
+    position: relative;
+    animation: tremor 7s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.glitch::before {
+    color: #ff003c;
+    transform: translate(2px, 0);
+    clip-path: inset(10% 0 65% 0);
+    animation: glitchRed 3.5s infinite steps(1);
+}
+
+.glitch::after {
+    color: #00eaff;
+    transform: translate(-2px, 0);
+    clip-path: inset(65% 0 12% 0);
+    animation: glitchBlue 2.8s infinite steps(1);
+}
+
+@keyframes glitchRed {
+    0%, 86%, 100% { clip-path: inset(10% 0 65% 0); }
+    87% { clip-path: inset(40% 0 30% 0); }
+    89% { clip-path: inset(5% 0 80% 0); }
+    91% { clip-path: inset(70% 0 5% 0); }
+}
+
+@keyframes glitchBlue {
+    0%, 82%, 100% { clip-path: inset(65% 0 12% 0); }
+    83% { clip-path: inset(15% 0 60% 0); }
+    86% { clip-path: inset(75% 0 2% 0); }
+    88% { clip-path: inset(35% 0 35% 0); }
+}
+
+@keyframes tremor {
+    0%, 96%, 100% {
+        transform: translate(0);
+    }
+    97% {
+        transform: translate(-1px, 1px);
+    }
+    98% {
+        transform: translate(1px, -1px);
+    }
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    padding: 24px 30px;
+    border-bottom: 1px solid #304936;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(30,70,38,.25),
+            transparent,
+            rgba(30,70,38,.12)
+        );
+}
+
+.classification {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    color: var(--gray);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.title {
+    margin: 20px 0 5px;
+    font-family: "VT323", monospace;
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: .8;
+    letter-spacing: 4px;
+    color: var(--white);
+    text-shadow:
+        2px 0 #ff003c,
+        -2px 0 #00eaff;
+}
+
+.subtitle {
+    color: var(--green-dim);
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.warning {
+    margin-top: 25px;
+    padding: 12px 15px;
+
+    border-left: 3px solid var(--red);
+    background: rgba(255,0,30,.055);
+
+    color: #ff6670;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    animation: warningPulse 2.8s infinite;
+}
+
+@keyframes warningPulse {
+    50% {
+        opacity: .55;
+    }
+}
+
+/* =========================================================
+   ACCESS BAR
+   ========================================================= */
+
+.access {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    padding: 10px 30px;
+
+    background: #070908;
+    border-bottom: 1px solid #26352a;
+
+    font-size: 11px;
+}
+
+.access span:last-child {
+    color: var(--red);
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+    padding: 30px;
+}
+
+.section {
+    position: relative;
+    margin-bottom: 35px;
+    border-top: 1px solid #263c2a;
+    padding-top: 22px;
+}
+
+.section-title {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 3px;
+
+    background: #080b09;
+    padding-right: 12px;
+}
+
+.section-title::before {
+    content: "// ";
+    color: var(--red);
+}
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 28px;
+}
+
+.identity-box {
+    min-height: 285px;
+    border: 1px solid #304936;
+    background: #050706;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.identity-box::before {
+    content: "IMAGE DATA CORRUPTED";
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: #3e6045;
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 8px,
+            rgba(100,255,120,.025) 8px,
+            rgba(100,255,120,.025) 9px
+        );
+}
+
+.identity-box::after {
+    content: "NO VISUAL RECORD";
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    color: var(--red-dark);
+    font-size: 10px;
+}
+
+.profile-data {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 10px 25px;
+}
+
+.data {
+    padding: 8px 0;
+    border-bottom: 1px dotted #233127;
+}
+
+.label {
+    display: block;
+    color: #65736a;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 3px;
+}
+
+.value {
+    color: var(--white);
+    font-size: 14px;
+}
+
+.danger {
+    color: var(--red);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+/* =========================================================
+   DOSSIER GRID
+   ========================================================= */
+
+.dossier {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.card {
+    padding: 16px;
+    border: 1px solid #233127;
+    background: rgba(10,14,11,.65);
+    min-height: 110px;
+
+    transition: .2s;
+}
+
+.card:hover {
+    border-color: #52795b;
+    box-shadow: inset 0 0 20px rgba(100,255,120,.025);
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    color: #66796c;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.card p {
+    margin: 0;
+    color: var(--white);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   MARKINGS
+   ========================================================= */
+
+.markings {
+    border-left: 3px solid var(--red-dark);
+    padding: 15px 20px;
+    background: rgba(90,0,10,.06);
+}
+
+.markings p {
+    color: #c8ceca;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+/* =========================================================
+   FAMILY RECORD
+   ========================================================= */
+
+.family {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.family-member {
+    padding: 18px;
+
+    border: 1px solid #29362d;
+    background: #070a08;
+}
+
+.family-member.active {
+    border-left: 3px solid var(--green);
+}
+
+.family-member.deceased {
+    border-left: 3px solid var(--red);
+    opacity: .7;
+}
+
+.family-name {
+    font-size: 16px;
+    color: var(--white);
+}
+
+.family-status {
+    margin-top: 7px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.active .family-status {
+    color: var(--green);
+}
+
+.deceased .family-status {
+    color: var(--red);
+}
+
+/* =========================================================
+   CORRUPTED DATA
+   ========================================================= */
+
+.corruption {
+    position: relative;
+    margin: 30px 0;
+    padding: 25px;
+
+    border: 1px solid var(--red-dark);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,0,30,.05),
+            transparent,
+            rgba(255,0,30,.025)
+        );
+
+    overflow: hidden;
+}
+
+.corruption::before {
+    content: "████ ERROR ████ ERROR ████ ERROR ████";
+    position: absolute;
+    top: 5px;
+    right: -50px;
+
+    color: rgba(255,40,60,.15);
+    font-size: 10px;
+
+    transform: rotate(3deg);
+}
+
+.corrupt-text {
+    color: #ff5663;
+    font-size: 12px;
+    line-height: 1.8;
+    word-break: break-all;
+}
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
+
+.terminal {
+    background: #010201;
+    border: 1px solid #29382d;
+    padding: 20px;
+
+    font-size: 12px;
+    line-height: 1.7;
+
+    min-height: 180px;
+
+    box-shadow:
+        inset 0 0 35px rgba(100,255,120,.025);
+}
+
+.prompt {
+    color: var(--green);
+}
+
+.dim {
+    color: #405343;
+}
+
+.error {
+    color: var(--red);
+}
+
+.cursor {
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    background: var(--green);
+    animation: cursorBlink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes cursorBlink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   REDACTION
+   ========================================================= */
+
+.redacted {
+    background: #000;
+    color: #000;
+    padding: 0 8px;
+    user-select: none;
+}
+
+.redacted:hover {
+    color: #111;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 20px 30px;
+
+    border-top: 1px solid #263c2a;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    color: #465449;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.footer .unstable {
+    color: var(--red);
+}
+
+/* =========================================================
+   RANDOM STATIC
+   ========================================================= */
+
+.static {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9996;
+
+    width: 100%;
+    height: 2px;
+
+    left: 0;
+    top: 40%;
+
+    background: rgba(150,255,170,.05);
+
+    animation: staticJump 8s infinite;
+}
+
+@keyframes staticJump {
+    0%, 94%, 100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    95% {
+        transform: translateY(-120px);
+        opacity: 1;
+    }
+
+    96% {
+        transform: translateY(220px);
+        opacity: .5;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .identity-box {
+        min-height: 180px;
+    }
+
+    .profile-data {
+        grid-template-columns: 1fr;
+    }
+
+    .dossier {
+        grid-template-columns: 1fr;
+    }
+
+    .family {
+        grid-template-columns: 1fr;
+    }
+
+    .access {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="static"></div>
+
+<main class="file">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+        <div class="classification">
+            <span>SCP FOUNDATION // INTERNAL PERSONNEL DATABASE</span>
+            <span>GENSEC / SEC-03</span>
+        </div>
+
+        <div
+            class="title glitch"
+            data-text="RIOS BELMONT"
+        >
+            RIOS BELMONT
+        </div>
+
+        <div class="subtitle">
+            DESIGNATION // "FELWINTER"
+        </div>
+
+        <div class="warning">
+            ⚠ WARNING: PERSONNEL RECORD INTEGRITY COMPROMISED //
+            MULTIPLE DATA SEGMENTS FAILING VALIDATION //
+            LAST VERIFIED COPY: <span class="redacted">██████████</span>
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         ACCESS BAR
+         ===================================================== -->
+
+    <div class="access">
+        <span>ACCESSING: PERSONNEL/GENSEC/BELMONT-R</span>
+        <span>STATUS: [ UNSTABLE ]</span>
+    </div>
+
+
+    <section class="content">
+
+
+        <!-- =================================================
+             IDENTITY
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                PRIMARY IDENTIFICATION
+            </div>
+
+            <div class="profile">
+
+                <div class="identity-box"></div>
+
+                <div class="profile-data">
+
+                    <div class="data">
+                        <span class="label">Legal Name</span>
+                        <span class="value glitch" data-text="Rios Belmont">
+                            Rios Belmont
+                        </span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Operational Codename</span>
+                        <span class="value danger">
+                            'FELWINTER'
+                        </span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Sex</span>
+                        <span class="value">MALE</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Age</span>
+                        <span class="value">40</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Date of Birth</span>
+                        <span class="value">08-04-1986</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Birthplace</span>
+                        <span class="value">MANITOULIN ISLAND, CANADA</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Clearance</span>
+                        <span class="value danger">LEVEL 3</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Department</span>
+                        <span class="value">GENERAL SECURITY DEPARTMENT</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Occupation</span>
+                        <span class="value">GENSEC OFFICER</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Relationship Status</span>
+                        <span class="value">SINGLE / WIDOWER</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Blood Type</span>
+                        <span class="value danger">A POS</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Height</span>
+                        <span class="value">6'4" / 193 CM</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Weight</span>
+                        <span class="value">240 LBS</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Hair</span>
+                        <span class="value">BLACK</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Right Eye</span>
+                        <span class="value blue">BLUE</span>
+                    </div>
+
+                    <div class="data">
+                        <span class="label">Left Eye</span>
+                        <span class="value danger">GLASS PROSTHETIC</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PHYSICAL RECORD
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                PHYSICAL RECORD
+            </div>
+
+            <div class="dossier">
+
+                <div class="card">
+                    <h3>OCULAR DAMAGE</h3>
+                    <p>
+                        Left eye replaced with glass prosthetic.
+                        Extensive claw scarring surrounding orbital region.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>BODY CONDITION</h3>
+                    <p>
+                        Numerous scars distributed across torso.
+                        Origin of several wounds remains undocumented.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>IDENTIFYING MARK</h3>
+                    <p>
+                        Wolf-head brand located on left breast.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BODY MARKINGS
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                BODY MARKINGS / TATTOO RECORD
+            </div>
+
+            <div class="markings">
+
+                <p>
+                    <strong>LEFT BREAST:</strong><br>
+                    Wolf-head branding. Exact origin classified.
+                </p>
+
+                <p>
+                    <strong>LEFT ARM:</strong><br>
+                    Tattoo depicting a "Broadway" poker hand.
+                    The ace position has been replaced with a
+                    Five-SeveN pistol.
+                </p>
+
+                <p>
+                    Surrounding scroll contains the phrase:
+                </p>
+
+                <p class="danger">
+                    "FOLDING IS NEVER AN OPTION"
+                </p>
+
+                <p>
+                    <strong>LEFT EYE / ORBIT:</strong><br>
+                    Extensive claw scars. Pattern does not correspond
+                    to any standard GENSEC training injury.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FAMILY
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                FAMILY / RELATIONAL DATA
+            </div>
+
+            <div class="family">
+
+                <div class="family-member active">
+
+                    <div class="family-name">
+                        Klara Frenken
+                    </div>
+
+                    <div class="family-status">
+                        [ ACTIVE ] // DAUGHTER
+                    </div>
+
+                </div>
+
+                <div class="family-member deceased">
+
+                    <div class="family-name">
+                        Klara Frenken
+                    </div>
+
+                    <div class="family-status">
+                        [ DECEASED ] // WIFE
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CORRUPTION EVENT
+             ================================================= -->
+
+        <div class="corruption">
+
+            <div class="section-title">
+                AUTOMATED INTEGRITY REPORT
+            </div>
+
+            <div class="corrupt-text">
+                [ERR-00A7] PERSONNEL DATA HASH MISMATCH<br>
+                [ERR-11F2] BIOLOGICAL RECORD CONFLICT<br>
+                [ERR-19C4] RELATIONAL RECORD CONFLICT<br>
+                [ERR-22D9] OCULAR STATUS VALIDATION FAILED<br>
+                [ERR-████] SUBJECT DESIGNATION DUPLICATED<br>
+                [ERR-████] SUBJECT DESIGNATION DUPLICATED<br>
+                [ERR-████] SUBJECT DESIGNATION DUPLICATED<br>
+                <br>
+                R̷E̵C̴O̵R̴D̵ ̵I̴N̵T̸E̷G̵R̴I̵T̵Y̶:̴ ̷4̷3̴%̶
+                <br>
+                <br>
+                WARNING:
+                THIS RECORD MAY NOT REPRESENT THE CURRENT STATE
+                OF THE SUBJECT.
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TERMINAL
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                SYSTEM TERMINAL
+            </div>
+
+            <div class="terminal">
+
+                <div>
+                    <span class="prompt">GENSEC@SITE-██</span>:
+                    <span class="dim">~/personnel/</span>$
+                    cat BELMONT_RIOS.dat
+                </div>
+
+                <div class="dim">
+                    Loading personnel file...
+                </div>
+
+                <div class="dim">
+                    Loading █████████████...
+                </div>
+
+                <div>
+                    <span class="prompt">IDENTITY:</span>
+                    RIOS BELMONT
+                </div>
+
+                <div>
+                    <span class="prompt">CODENAME:</span>
+                    'FELWINTER'
+                </div>
+
+                <div>
+                    <span class="prompt">DEPARTMENT:</span>
+                    GENSEC
+                </div>
+
+                <div>
+                    <span class="prompt">CLEARANCE:</span>
+                    LEVEL 3
+                </div>
+
+                <div class="error">
+                    ERROR: ADDITIONAL RECORD DETECTED
+                </div>
+
+                <div class="error">
+                    ERROR: ADDITIONAL RECORD DETECTED
+                </div>
+
+                <div class="error">
+                    ERROR: ADDITIONAL RECORD DETECTED
+                </div>
+
+                <br>
+
+                <div>
+                    <span class="prompt">SYSTEM:</span>
+                    Attempting recovery...
+                </div>
+
+                <div class="dim">
+                    ████████████████████████████ 17%
+                </div>
+
+                <div class="error">
+                    RECOVERY ABORTED.
+                </div>
+
+                <div>
+                    <span class="prompt">GENSEC@SITE-██</span>:
+                    <span class="cursor"></span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL NOTICE
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                ADMINISTRATIVE NOTICE
+            </div>
+
+            <div class="markings">
+
+                <p>
+                    This file is intended for authorized SCP Foundation
+                    personnel possessing the appropriate clearance.
+                </p>
+
+                <p class="danger">
+                    DO NOT ATTEMPT TO RESTORE CORRUPTED RECORD SEGMENTS.
+                </p>
+
+                <p>
+                    Previous attempts at manual restoration have resulted
+                    in additional discrepancies within the personnel archive.
+                </p>
+
+                <p class="dim">
+                    If the subject identifies himself as "Felwinter",
+                    continue normal GENSEC identification procedures.
+                </p>
+
+            </div>
+
+        </section>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer">
+
+        <span>
+            SCP FOUNDATION // GENSEC ARCHIVE
+        </span>
+
+        <span>
+            RECORD: RB-██-FELWINTER
+        </span>
+
+        <span class="unstable">
+            DATABASE STATUS: UNSTABLE
+        </span>
+
+    </footer>
+
+</main>
+
+<script>
+
+/* =========================================================
+   RANDOM DIGITAL CORRUPTION
+   ========================================================= */
+
+const corruptionChars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░@#$%&!?";
+
+const glitchElements =
+    document.querySelectorAll(".glitch");
+
+function corruptText(element) {
+
+    const original = element.dataset.text;
+
+    if (!original) return;
+
+    let result = "";
+
+    for (let i = 0; i < original.length; i++) {
+
+        if (Math.random() < 0.06) {
+            result += corruptionChars[
+                Math.floor(Math.random() * corruptionChars.length)
+            ];
+        } else {
+            result += original[i];
+        }
+    }
+
+    element.textContent = result;
+
+    setTimeout(() => {
+        element.textContent = original;
+    }, 80 + Math.random() * 180);
+}
+
+setInterval(() => {
+
+    if (Math.random() < 0.55) {
+
+        const element =
+            glitchElements[
+                Math.floor(Math.random() * glitchElements.length)
+            ];
+
+        corruptText(element);
+    }
+
+}, 900);
+
+
+/* =========================================================
+   RANDOM SCREEN JITTER
+   ========================================================= */
+
+setInterval(() => {
+
+    if (Math.random() < 0.12) {
+
+        document.querySelector(".file").style.transform =
+            `translate(${(Math.random() * 4 - 2)}px,
+                        ${(Math.random() * 3 - 1.5)}px)`;
+
+        setTimeout(() => {
+            document.querySelector(".file").style.transform = "";
+        }, 60);
+    }
+
+}, 1200);
+
+
+/* =========================================================
+   TERMINAL CORRUPTION
+   ========================================================= */
+
+const terminal = document.querySelector(".terminal");
+
+setInterval(() => {
+
+    if (Math.random() < .18) {
+
+        const flash = document.createElement("div");
+
+        flash.className = "error";
+
+        flash.textContent =
+            "[SYSTEM] " +
+            Array.from(
+                {length: Math.floor(Math.random() * 20) + 8},
+                () =>
+                    corruptionChars[
+                        Math.floor(Math.random() *
+                        corruptionChars.length)
+                    ]
+            ).join("");
+
+        terminal.appendChild(flash);
+
+        setTimeout(() => {
+            flash.remove();
+        }, 500);
+    }
+
+}, 1700);
+
+</script>
+
+</body>
+</html>
+```
