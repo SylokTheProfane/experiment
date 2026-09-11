@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -602,3 +603,1566 @@ body::after {
     font-size: 8px;
 
     letter-spacing: 1px;
+}
+
+
+.frequency::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--green);
+
+    opacity: .3;
+
+    animation:
+        signal
+        1.4s
+        infinite;
+}
+
+
+.frequency:hover {
+
+    border-color: var(--green);
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(100,255,120,.04);
+}
+
+
+.frequency-name {
+
+    color: var(--white);
+
+    font-size: 16px;
+
+    letter-spacing: 2px;
+}
+
+
+.signal {
+
+    margin-top: 9px;
+
+    color: var(--green-dim);
+
+    font-size: 9px;
+}
+
+
+@keyframes signal {
+
+    0%,100% {
+        transform: scaleX(.35);
+        opacity: .2;
+    }
+
+    50% {
+        transform: scaleX(1);
+        opacity: .8;
+    }
+}
+
+
+/* =========================================================
+   OPINIONS / PERSONNEL RELATIONS
+   ========================================================= */
+
+.opinions {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.opinion {
+
+    position: relative;
+
+    padding: 18px 20px 18px 23px;
+
+    border: 1px solid #26372b;
+
+    border-left:
+        3px solid
+        var(--green-dim);
+
+    background:
+        rgba(8,12,9,.75);
+
+    overflow: hidden;
+
+    transition: .2s;
+}
+
+
+.opinion:hover {
+
+    border-color: #52795b;
+
+    border-left-color:
+        var(--green);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(100,255,120,.025);
+}
+
+
+.opinion::before {
+
+    content: "RELATION_DATA";
+
+    position: absolute;
+
+    top: 8px;
+
+    right: 12px;
+
+    color: #26352a;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+
+.opinion-header {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 10px;
+}
+
+
+.opinion-name {
+
+    color: var(--white);
+
+    font-size: 17px;
+
+    letter-spacing: 2px;
+}
+
+
+.opinion-role {
+
+    color: var(--green);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.opinion-text {
+
+    margin: 0;
+
+    color: #aeb8b1;
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    font-style: italic;
+}
+
+
+.opinion-text::before {
+
+    content: "\"";
+
+    color: var(--red);
+
+    font-size: 20px;
+
+    margin-right: 3px;
+}
+
+
+.opinion-text::after {
+
+    content: "\"";
+
+    color: var(--red);
+
+    font-size: 20px;
+
+    margin-left: 3px;
+}
+
+
+/* =========================================================
+   RELATIONSHIP MATRIX
+   ========================================================= */
+
+.matrix {
+
+    display: grid;
+
+    grid-template-columns:
+        180px
+        1fr;
+
+    border: 1px solid #29382d;
+
+    background: #050706;
+}
+
+
+.matrix-label {
+
+    padding: 15px;
+
+    border-right: 1px solid #29382d;
+
+    color: #536257;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.matrix-value {
+
+    padding: 15px;
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+.matrix-row {
+
+    display: contents;
+}
+
+
+.matrix-row:not(:last-child)
+.matrix-label,
+.matrix-row:not(:last-child)
+.matrix-value {
+
+    border-bottom: 1px solid #1c2920;
+}
+
+
+/* =========================================================
+   CORRUPTION
+   ========================================================= */
+
+.corruption {
+
+    position: relative;
+
+    margin: 30px 0;
+
+    padding: 25px;
+
+    border: 1px solid var(--red-dark);
+
+    background:
+        linear-gradient(
+            90deg,
+
+            rgba(255,0,30,.05),
+
+            transparent,
+
+            rgba(255,0,30,.025)
+        );
+
+    overflow: hidden;
+}
+
+
+.corruption::before {
+
+    content:
+        "████ RELATIONAL ERROR ████ "
+        "RELATIONAL ERROR ████";
+
+    position: absolute;
+
+    top: 5px;
+
+    right: -50px;
+
+    color:
+        rgba(255,40,60,.15);
+
+    font-size: 10px;
+
+    transform:
+        rotate(3deg);
+}
+
+
+.corrupt-text {
+
+    color: #ff5663;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    word-break: break-all;
+}
+
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
+
+.terminal {
+
+    background: #010201;
+
+    border: 1px solid #29382d;
+
+    padding: 20px;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    min-height: 220px;
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(100,255,120,.025);
+}
+
+
+.prompt {
+    color: var(--green);
+}
+
+
+.dim {
+    color: #405343;
+}
+
+
+.error {
+    color: var(--red);
+}
+
+
+.success {
+    color: #8cff9a;
+}
+
+
+.cursor {
+
+    display: inline-block;
+
+    width: 7px;
+
+    height: 14px;
+
+    background: var(--green);
+
+    animation:
+        cursorBlink
+        1s
+        infinite;
+
+    vertical-align: middle;
+}
+
+
+@keyframes cursorBlink {
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    padding: 20px 30px;
+
+    border-top: 1px solid #263c2a;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    color: #465449;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+.footer .unstable {
+    color: var(--red);
+}
+
+
+/* =========================================================
+   STATIC LINE
+   ========================================================= */
+
+.static {
+
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 9996;
+
+    width: 100%;
+
+    height: 2px;
+
+    left: 0;
+
+    top: 40%;
+
+    background:
+        rgba(150,255,170,.05);
+
+    animation:
+        staticJump
+        8s
+        infinite;
+}
+
+
+@keyframes staticJump {
+
+    0%,94%,100% {
+
+        transform:
+            translateY(0);
+
+        opacity: 0;
+    }
+
+    95% {
+
+        transform:
+            translateY(-120px);
+
+        opacity: 1;
+    }
+
+    96% {
+
+        transform:
+            translateY(220px);
+
+        opacity: .5;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .frequency-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .matrix {
+
+        grid-template-columns: 1fr;
+    }
+
+    .matrix-label {
+
+        border-right: none;
+
+        border-bottom: 1px solid #29382d;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .frequency-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .nav-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .content {
+
+        padding: 20px;
+    }
+
+    .header {
+
+        padding: 20px;
+    }
+
+    .access {
+
+        grid-template-columns: 1fr;
+
+        gap: 5px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="static"></div>
+
+
+<main class="file">
+
+
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
+<header class="header">
+
+    <div class="classification">
+
+        <span>
+            SCP FOUNDATION // INTERNAL PERSONNEL DATABASE
+        </span>
+
+        <span>
+            GENSEC / REL-03
+        </span>
+
+    </div>
+
+
+    <div
+        class="title glitch"
+        data-text="RELATIONAL DATA"
+    >
+        RELATIONAL DATA
+    </div>
+
+
+    <div class="subtitle">
+
+        SUBJECT // RIOS BELMONT //
+        "FELWINTER"
+
+    </div>
+
+
+    <div class="warning">
+
+        ⚠ WARNING: COMMUNICATIONS ARCHIVE
+        PARTIALLY CORRUPTED //
+        PERSONNEL ASSOCIATION DATA MAY BE INCOMPLETE //
+
+        LAST VERIFIED COPY:
+        <span
+            style="
+                background:#000;
+                color:#000;
+                padding:0 8px;
+            "
+        >
+            ██████████
+        </span>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     ACCESS BAR
+     ===================================================== -->
+
+<div class="access">
+
+    <span>
+        ACCESSING:
+        PERSONNEL/GENSEC/BELMONT-R/RELATIONS
+    </span>
+
+    <span>
+        STATUS: [ UNSTABLE ]
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     PAGE NAVIGATION
+     ===================================================== -->
+
+<nav class="page-navigation">
+
+    <div class="nav-grid">
+
+        <a
+            href="index.html"
+            class="nav-button"
+        >
+
+            [ RETURN TO PRIMARY RECORD ]
+
+            <small>
+                PERSONNEL // BIOGRAPHICAL DATA
+            </small>
+
+        </a>
+
+
+        <a
+            href="relations.html"
+            class="nav-button current"
+        >
+
+            [ RELATIONAL DATA // CURRENT ]
+
+            <small>
+                COMMUNICATIONS // ASSOCIATES
+            </small>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="content">
+
+
+<!-- =====================================================
+     RADIO FREQUENCIES
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        CURRENT RADIO FREQUENCIES
+
+    </div>
+
+
+    <div class="frequency-grid">
+
+
+        <div class="frequency">
+
+            <div class="frequency-name">
+                KAIROS
+            </div>
+
+            <div class="signal">
+                SIGNAL // ACTIVE
+            </div>
+
+        </div>
+
+
+        <div class="frequency">
+
+            <div class="frequency-name">
+                AQUILA
+            </div>
+
+            <div class="signal">
+                SIGNAL // ACTIVE
+            </div>
+
+        </div>
+
+
+        <div class="frequency">
+
+            <div class="frequency-name">
+                MERCER
+            </div>
+
+            <div class="signal">
+                SIGNAL // ACTIVE
+            </div>
+
+        </div>
+
+
+        <div class="frequency">
+
+            <div class="frequency-name">
+                METZILI
+            </div>
+
+            <div class="signal">
+                SIGNAL // ACTIVE
+            </div>
+
+        </div>
+
+
+        <div class="frequency">
+
+            <div class="frequency-name">
+                PARACELSUS
+            </div>
+
+            <div class="signal">
+                SIGNAL // ACTIVE
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PERSONNEL RELATIONS
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        PERSONNEL OPINIONS / ASSOCIATIONS
+
+    </div>
+
+
+    <div class="opinions">
+
+
+        <!-- HADES -->
+
+        <article class="opinion">
+
+            <div class="opinion-header">
+
+                <div class="opinion-name">
+                    HADES
+                </div>
+
+                <div class="opinion-role">
+                    MENTOR
+                </div>
+
+            </div>
+
+
+            <p class="opinion-text">
+
+                My mentor, the person who I look
+                to for guidance.
+
+            </p>
+
+        </article>
+
+
+        <!-- KAIROS -->
+
+        <article class="opinion">
+
+            <div class="opinion-header">
+
+                <div class="opinion-name">
+                    KAIROS
+                </div>
+
+                <div class="opinion-role">
+                    CLOSE FRIEND
+                </div>
+
+            </div>
+
+
+            <p class="opinion-text">
+
+                You've been at my side despite how
+                hard I try and push you away...
+                preciate it brother, one day we'll
+                take a tour round Canada.
+
+            </p>
+
+        </article>
+
+
+        <!-- METZILI -->
+
+        <article class="opinion">
+
+            <div class="opinion-header">
+
+                <div class="opinion-name">
+                    METZILI
+                </div>
+
+                <div class="opinion-role">
+                    CLOSE FRIEND
+                </div>
+
+            </div>
+
+
+            <p class="opinion-text">
+
+                I owe you a life debt. You ever need
+                anything at all, I've got your back.
+                Thank you...
+
+            </p>
+
+        </article>
+
+
+        <!-- AQUILA -->
+
+        <article class="opinion">
+
+            <div class="opinion-header">
+
+                <div class="opinion-name">
+                    AQUILA
+                </div>
+
+                <div class="opinion-role">
+                    MENTEE
+                </div>
+
+            </div>
+
+
+            <p class="opinion-text">
+
+                You remind me of me, a younger me
+                who isn't as bitter. I'll mentor you
+                best I can, kid. Look after Mercer,
+                he'll be a great Co-Lead. Mentor him
+                as I did you.
+
+            </p>
+
+        </article>
+
+
+        <!-- MERCER -->
+
+        <article class="opinion">
+
+            <div class="opinion-header">
+
+                <div class="opinion-name">
+                    MERCER
+                </div>
+
+                <div class="opinion-role">
+                    MENTEE
+                </div>
+
+            </div>
+
+
+            <p class="opinion-text">
+
+                You got a spark of tenacity, remind
+                me of myself as well. Look after
+                Aquila and he'll look after you.
+                You'll be a great Vanguard Co-Lead
+                and eventually Lead.
+
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RELATIONSHIP MATRIX
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        ASSOCIATION MATRIX
+
+    </div>
+
+
+    <div class="matrix">
+
+
+        <div class="matrix-row">
+
+            <div class="matrix-label">
+                PRIMARY MENTOR
+            </div>
+
+            <div class="matrix-value">
+                HADES
+                <span class="dim">
+                    // GUIDANCE / SENIOR PERSONNEL
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="matrix-row">
+
+            <div class="matrix-label">
+                CLOSE FRIENDS
+            </div>
+
+            <div class="matrix-value">
+                KAIROS //
+                METZILI
+            </div>
+
+        </div>
+
+
+        <div class="matrix-row">
+
+            <div class="matrix-label">
+                MENTEES
+            </div>
+
+            <div class="matrix-value">
+                AQUILA //
+                MERCER
+            </div>
+
+        </div>
+
+
+        <div class="matrix-row">
+
+            <div class="matrix-label">
+                COMMAND SUCCESSION
+            </div>
+
+            <div class="matrix-value">
+
+                AQUILA → MERCER
+
+                <span class="dim">
+                    // SUBJECT RECOMMENDS
+                    FUTURE VANGUARD LEADERSHIP
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CORRUPTION EVENT
+     ===================================================== -->
+
+<div class="corruption">
+
+    <div class="section-title">
+
+        COMMUNICATION ARCHIVE INTEGRITY
+
+    </div>
+
+
+    <div class="corrupt-text">
+
+        [ERR-REL-001] ASSOCIATION GRAPH PARTIALLY CORRUPTED<br>
+
+        [ERR-REL-014] FIVE ACTIVE RADIO IDENTIFIERS DETECTED<br>
+
+        [ERR-REL-029] EMOTIONAL CONTEXT DATA OUTSIDE
+        STANDARD PERSONNEL PARAMETERS<br>
+
+        [ERR-REL-031] MENTOR/MENTEE RELATIONSHIP
+        RECIPROCITY DETECTED<br>
+
+        [ERR-REL-████] UNKNOWN COMMUNICATION NODE
+        ATTEMPTING CONNECTION<br>
+
+        [ERR-REL-████] CONNECTION REJECTED<br>
+
+        [ERR-REL-████] CONNECTION REJECTED<br>
+
+        <br>
+
+        R̷E̴L̷A̶T̸I̵O̴N̷A̸L̶ ̴D̵A̷T̶A̸ ̷I̵N̸T̵E̸G̶R̴I̸T̵Y̷:
+        ̴6̸1̷%̴
+
+        <br><br>
+
+        WARNING:
+
+        DO NOT ASSUME RADIO CONTACT INDICATES
+        PHYSICAL PROXIMITY.
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SYSTEM TERMINAL
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        COMMUNICATIONS TERMINAL
+
+    </div>
+
+
+    <div class="terminal">
+
+
+        <div>
+
+            <span class="prompt">
+                GENSEC@SITE-██
+            </span>:
+
+            <span class="dim">
+                ~/personnel/relations/
+            </span>$
+
+            scan --subject BELMONT_RIOS
+
+        </div>
+
+
+        <div class="dim">
+
+            Initializing relational scan...
+
+        </div>
+
+
+        <div class="dim">
+
+            Searching radio network...
+
+        </div>
+
+
+        <div class="success">
+
+            [OK] KAIROS // SIGNAL FOUND
+
+        </div>
+
+
+        <div class="success">
+
+            [OK] AQUILA // SIGNAL FOUND
+
+        </div>
+
+
+        <div class="success">
+
+            [OK] MERCER // SIGNAL FOUND
+
+        </div>
+
+
+        <div class="success">
+
+            [OK] METZILI // SIGNAL FOUND
+
+        </div>
+
+
+        <div class="success">
+
+            [OK] PARACELSUS // SIGNAL FOUND
+
+        </div>
+
+
+        <br>
+
+
+        <div>
+
+            <span class="prompt">
+                RELATIONSHIP MODEL:
+            </span>
+
+            LOADED
+
+        </div>
+
+
+        <div>
+
+            <span class="prompt">
+                PRIMARY MENTOR:
+            </span>
+
+            HADES
+
+        </div>
+
+
+        <div>
+
+            <span class="prompt">
+                CLOSE FRIENDS:
+            </span>
+
+            KAIROS / METZILI
+
+        </div>
+
+
+        <div>
+
+            <span class="prompt">
+                MENTEES:
+            </span>
+
+            AQUILA / MERCER
+
+        </div>
+
+
+        <br>
+
+
+        <div class="error">
+
+            WARNING: SUBJECT'S SOCIAL GRAPH
+            EXCEEDS EXPECTED GENSEC PARAMETERS.
+
+        </div>
+
+
+        <div class="error">
+
+            WARNING: EMOTIONAL ATTACHMENT
+            DETECTED IN ARCHIVED STATEMENTS.
+
+        </div>
+
+
+        <div class="dim">
+
+            Attempting archival recovery...
+
+        </div>
+
+
+        <div class="dim">
+
+            ████████████████████ 61%
+
+        </div>
+
+
+        <div class="error">
+
+            RECOVERY INTERRUPTED.
+
+        </div>
+
+
+        <div>
+
+            <span class="prompt">
+                GENSEC@SITE-██
+            </span>:
+
+            <span class="cursor"></span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ADMINISTRATIVE NOTE
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        ADMINISTRATIVE NOTE
+
+    </div>
+
+
+    <div
+        style="
+            border-left:3px solid var(--red-dark);
+            padding:15px 20px;
+            background:rgba(90,0,10,.06);
+        "
+    >
+
+        <p
+            style="
+                color:#c8ceca;
+                line-height:1.7;
+                font-size:13px;
+            "
+        >
+
+            Subject's listed communications contacts are
+            considered trusted operational associates unless
+            otherwise indicated by GENSEC command.
+
+        </p>
+
+
+        <p
+            style="
+                color:var(--red);
+                line-height:1.7;
+                font-size:13px;
+            "
+        >
+
+            NOTE: Do not intentionally isolate BELMONT from
+            established support personnel without authorization
+            from departmental leadership.
+
+        </p>
+
+
+        <p
+            style="
+                color:#405343;
+                line-height:1.7;
+                font-size:12px;
+            "
+        >
+
+            The subject has demonstrated a recurring tendency
+            to distance himself from personnel he considers
+            personally important.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="footer">
+
+    <span>
+        SCP FOUNDATION // GENSEC ARCHIVE
+    </span>
+
+    <span>
+        RECORD: RB-██-FELWINTER-REL
+    </span>
+
+    <span class="unstable">
+        DATABASE STATUS: UNSTABLE
+    </span>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   RANDOM DIGITAL CORRUPTION
+   ========================================================= */
+
+const corruptionChars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░@#$%&!?";
+
+
+const glitchElements =
+    document.querySelectorAll(".glitch");
+
+
+function corruptText(element) {
+
+    const original =
+        element.dataset.text;
+
+    if (!original) return;
+
+
+    let result = "";
+
+
+    for (
+        let i = 0;
+        i < original.length;
+        i++
+    ) {
+
+        if (Math.random() < 0.06) {
+
+            result +=
+                corruptionChars[
+                    Math.floor(
+                        Math.random() *
+                        corruptionChars.length
+                    )
+                ];
+
+        } else {
+
+            result += original[i];
+
+        }
+
+    }
+
+
+    element.textContent =
+        result;
+
+
+    setTimeout(() => {
+
+        element.textContent =
+            original;
+
+    }, 80 + Math.random() * 180);
+
+}
+
+
+setInterval(() => {
+
+    if (Math.random() < .55) {
+
+        const element =
+            glitchElements[
+                Math.floor(
+                    Math.random() *
+                    glitchElements.length
+                )
+            ];
+
+        corruptText(element);
+
+    }
+
+}, 900);
+
+
+/* =========================================================
+   RANDOM SCREEN JITTER
+   ========================================================= */
+
+setInterval(() => {
+
+    if (Math.random() < .12) {
+
+        const file =
+            document.querySelector(".file");
+
+
+        file.style.transform =
+            `translate(
+                ${Math.random() * 4 - 2}px,
+                ${Math.random() * 3 - 1.5}px
+            )`;
+
+
+        setTimeout(() => {
+
+            file.style.transform = "";
+
+        }, 60);
+
+    }
+
+}, 1200);
+
+
+/* =========================================================
+   TERMINAL CORRUPTION
+   ========================================================= */
+
+const terminal =
+    document.querySelector(".terminal");
+
+
+setInterval(() => {
+
+    if (Math.random() < .18) {
+
+        const flash =
+            document.createElement("div");
+
+
+        flash.className =
+            "error";
+
+
+        flash.textContent =
+            "[SYSTEM] " +
+
+            Array.from(
+
+                {
+                    length:
+                        Math.floor(
+                            Math.random() * 20
+                        ) + 8
+                },
+
+                () =>
+
+                    corruptionChars[
+                        Math.floor(
+                            Math.random() *
+                            corruptionChars.length
+                        )
+                    ]
+
+            ).join("");
+
+
+        terminal.appendChild(
+            flash
+        );
+
+
+        setTimeout(() => {
+
+            flash.remove();
+
+        }, 500);
+
+    }
+
+}, 1700);
+
+
+/* =========================================================
+   RADIO SIGNAL FLICKER
+   ========================================================= */
+
+const frequencies =
+    document.querySelectorAll(
+        ".frequency"
+    );
+
+
+setInterval(() => {
+
+    if (!frequencies.length) return;
+
+
+    const target =
+        frequencies[
+            Math.floor(
+                Math.random() *
+                frequencies.length
+            )
+        ];
+
+
+    target.style.transform =
+        "translateX(" +
+        (Math.random() * 3 - 1.5) +
+        "px)";
+
+
+    setTimeout(() => {
+
+        target.style.transform = "";
+
+    }, 80);
+
+}, 1000);
+
+</script>
+
+</body>
+</html>
+```
