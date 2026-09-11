@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,82 +7,6 @@
 <title>GENSEC // PERSONNEL RECORD // FELWINTER</title>
 
 <style>
-   /* =========================================================
-   PAGE NAVIGATION
-   ========================================================= */
-
-.page-navigation {
-    padding: 15px 30px;
-    border-bottom: 1px solid #26352a;
-    background: #050706;
-}
-
-.nav-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-
-    padding: 13px 16px;
-
-    border: 1px solid #304936;
-    background: rgba(20,35,24,.35);
-
-    color: var(--green);
-    text-decoration: none;
-
-    font-family: "Share Tech Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
-
-    transition: .2s;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-button::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        repeating-linear-gradient(
-            90deg,
-            transparent 0px,
-            transparent 12px,
-            rgba(150,255,170,.025) 12px,
-            rgba(150,255,170,.025) 13px
-        );
-
-    pointer-events: none;
-}
-
-.nav-button:hover {
-    color: #ffffff;
-    border-color: var(--green);
-
-    box-shadow:
-        0 0 12px rgba(100,255,120,.12),
-        inset 0 0 20px rgba(100,255,120,.04);
-
-    transform: translateX(3px);
-}
-
-.nav-button small {
-    color: #465449;
-    font-size: 9px;
-    letter-spacing: 1px;
-}
-
-@media (max-width: 650px) {
-
-    .nav-button {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-}
 /* =========================================================
    SCP // CORRUPTED PERSONNEL DATABASE
    SUBJECT: RIOS BELMONT // "FELWINTER"
@@ -171,9 +94,11 @@ body::after {
     margin: 45px auto;
     border: 1px solid #304936;
     background: rgba(4,7,6,.94);
+
     box-shadow:
         0 0 40px rgba(60,255,90,.035),
         inset 0 0 70px rgba(50,255,70,.025);
+
     overflow: hidden;
 }
 
@@ -210,26 +135,53 @@ body::after {
 }
 
 @keyframes glitchRed {
-    0%, 86%, 100% { clip-path: inset(10% 0 65% 0); }
-    87% { clip-path: inset(40% 0 30% 0); }
-    89% { clip-path: inset(5% 0 80% 0); }
-    91% { clip-path: inset(70% 0 5% 0); }
+
+    0%, 86%, 100% {
+        clip-path: inset(10% 0 65% 0);
+    }
+
+    87% {
+        clip-path: inset(40% 0 30% 0);
+    }
+
+    89% {
+        clip-path: inset(5% 0 80% 0);
+    }
+
+    91% {
+        clip-path: inset(70% 0 5% 0);
+    }
 }
 
 @keyframes glitchBlue {
-    0%, 82%, 100% { clip-path: inset(65% 0 12% 0); }
-    83% { clip-path: inset(15% 0 60% 0); }
-    86% { clip-path: inset(75% 0 2% 0); }
-    88% { clip-path: inset(35% 0 35% 0); }
+
+    0%, 82%, 100% {
+        clip-path: inset(65% 0 12% 0);
+    }
+
+    83% {
+        clip-path: inset(15% 0 60% 0);
+    }
+
+    86% {
+        clip-path: inset(75% 0 2% 0);
+    }
+
+    88% {
+        clip-path: inset(35% 0 35% 0);
+    }
 }
 
 @keyframes tremor {
+
     0%, 96%, 100% {
         transform: translate(0);
     }
+
     97% {
         transform: translate(-1px, 1px);
     }
+
     98% {
         transform: translate(1px, -1px);
     }
@@ -241,7 +193,9 @@ body::after {
 
 .header {
     padding: 24px 30px;
+
     border-bottom: 1px solid #304936;
+
     background:
         linear-gradient(
             90deg,
@@ -264,11 +218,14 @@ body::after {
 
 .title {
     margin: 20px 0 5px;
+
     font-family: "VT323", monospace;
     font-size: clamp(42px, 7vw, 82px);
     line-height: .8;
+
     letter-spacing: 4px;
     color: var(--white);
+
     text-shadow:
         2px 0 #ff003c,
         -2px 0 #00eaff;
@@ -295,6 +252,7 @@ body::after {
 }
 
 @keyframes warningPulse {
+
     50% {
         opacity: .55;
     }
@@ -319,12 +277,92 @@ body::after {
 .access span:last-child {
     color: var(--red);
 }
-<nav class="page-navigation">
-    <a href="relations.html" class="nav-button">
-        <span>[ ACCESS RELATIONAL DATA ]</span>
-        <small>GENSEC // PERSONNEL NETWORK</small>
-    </a>
-</nav>
+
+/* =========================================================
+   PAGE NAVIGATION
+   ========================================================= */
+
+.page-navigation {
+    padding: 15px 30px;
+
+    border-bottom: 1px solid #26352a;
+    background: #050706;
+}
+
+.nav-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 13px 16px;
+
+    border: 1px solid #304936;
+    background: rgba(20,35,24,.35);
+
+    color: var(--green);
+    text-decoration: none;
+
+    font-family: "Share Tech Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    transition: .2s;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 12px,
+            rgba(150,255,170,.025) 12px,
+            rgba(150,255,170,.025) 13px
+        );
+
+    pointer-events: none;
+}
+
+.nav-button:hover {
+    color: #ffffff;
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 12px rgba(100,255,120,.12),
+        inset 0 0 20px rgba(100,255,120,.04);
+
+    transform: translateX(3px);
+}
+
+.nav-button span,
+.nav-button small {
+    position: relative;
+    z-index: 1;
+}
+
+.nav-button small {
+    color: #465449;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 650px) {
+
+    .nav-button {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
 /* =========================================================
    CONTENT
    ========================================================= */
@@ -335,8 +373,11 @@ body::after {
 
 .section {
     position: relative;
+
     margin-bottom: 35px;
+
     border-top: 1px solid #263c2a;
+
     padding-top: 22px;
 }
 
@@ -350,6 +391,7 @@ body::after {
     letter-spacing: 3px;
 
     background: #080b09;
+
     padding-right: 12px;
 }
 
@@ -370,6 +412,7 @@ body::after {
 
 .identity-box {
     min-height: 285px;
+
     border: 1px solid #304936;
     background: #050706;
 
@@ -379,6 +422,7 @@ body::after {
 
 .identity-box::before {
     content: "IMAGE DATA CORRUPTED";
+
     position: absolute;
     inset: 0;
 
@@ -406,6 +450,7 @@ body::after {
 
 .identity-box::after {
     content: "NO VISUAL RECORD";
+
     position: absolute;
     bottom: 12px;
     left: 0;
@@ -420,20 +465,25 @@ body::after {
 .profile-data {
     display: grid;
     grid-template-columns: repeat(2, minmax(0,1fr));
+
     gap: 10px 25px;
 }
 
 .data {
     padding: 8px 0;
+
     border-bottom: 1px dotted #233127;
 }
 
 .label {
     display: block;
+
     color: #65736a;
     font-size: 10px;
+
     text-transform: uppercase;
     letter-spacing: 2px;
+
     margin-bottom: 3px;
 }
 
@@ -462,8 +512,10 @@ body::after {
 
 .card {
     padding: 16px;
+
     border: 1px solid #233127;
     background: rgba(10,14,11,.65);
+
     min-height: 110px;
 
     transition: .2s;
@@ -471,11 +523,14 @@ body::after {
 
 .card:hover {
     border-color: #52795b;
-    box-shadow: inset 0 0 20px rgba(100,255,120,.025);
+
+    box-shadow:
+        inset 0 0 20px rgba(100,255,120,.025);
 }
 
 .card h3 {
     margin: 0 0 10px;
+
     color: #66796c;
     font-size: 10px;
     letter-spacing: 2px;
@@ -483,6 +538,7 @@ body::after {
 
 .card p {
     margin: 0;
+
     color: var(--white);
     font-size: 13px;
     line-height: 1.6;
@@ -494,12 +550,15 @@ body::after {
 
 .markings {
     border-left: 3px solid var(--red-dark);
+
     padding: 15px 20px;
+
     background: rgba(90,0,10,.06);
 }
 
 .markings p {
     color: #c8ceca;
+
     line-height: 1.7;
     font-size: 13px;
 }
@@ -537,6 +596,7 @@ body::after {
 
 .family-status {
     margin-top: 7px;
+
     font-size: 10px;
     letter-spacing: 2px;
 }
@@ -550,15 +610,256 @@ body::after {
 }
 
 /* =========================================================
+   PERSONNEL BIOGRAPHY
+   ========================================================= */
+
+.biography {
+    position: relative;
+
+    padding: 22px 25px;
+
+    border-left: 3px solid #304936;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20,35,24,.28),
+            rgba(5,8,6,.45)
+        );
+
+    color: #c8ceca;
+
+    font-size: 13px;
+    line-height: 1.85;
+
+    box-shadow:
+        inset 0 0 25px rgba(100,255,120,.015);
+}
+
+.biography::before {
+    content: "ARCHIVAL BIOGRAPHICAL RECORD // RB-FELWINTER";
+
+    display: block;
+
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px dotted #29382d;
+
+    color: #465449;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.biography p {
+    margin: 0 0 17px;
+}
+
+.biography p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   PSYCHOLOGICAL EVALUATION
+   ========================================================= */
+
+.psych-evaluation {
+    position: relative;
+
+    padding: 22px 25px;
+
+    border: 1px solid #29382d;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(15,22,17,.75),
+            rgba(5,7,6,.88)
+        );
+
+    color: #c8ceca;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    box-shadow:
+        inset 0 0 30px rgba(100,255,120,.015);
+}
+
+.evaluation-header {
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #304936;
+
+    color: var(--green);
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.psych-evaluation p {
+    margin: 0 0 18px;
+}
+
+/* =========================================================
+   PSYCHOLOGICAL QUOTE
+   ========================================================= */
+
+.psych-evaluation blockquote {
+    position: relative;
+
+    margin: 22px 0;
+
+    padding: 18px 22px;
+
+    border-left: 3px solid var(--red);
+
+    background:
+        rgba(255,0,30,.035);
+
+    color: #e0e4e1;
+
+    font-family: "VT323", monospace;
+    font-size: 20px;
+    line-height: 1.4;
+
+    text-shadow:
+        1px 0 rgba(255,0,60,.35),
+        -1px 0 rgba(0,234,255,.2);
+}
+
+.psych-evaluation blockquote::before {
+    content: "[ RECORDED STATEMENT ]";
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--red);
+
+    font-family: "Share Tech Mono", monospace;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   PSYCHOLOGICAL RECOMMENDATION
+   ========================================================= */
+
+.psych-warning {
+    margin: 25px 0;
+
+    padding: 17px 20px;
+
+    border-left: 3px solid var(--green-dim);
+
+    background:
+        rgba(100,255,120,.025);
+}
+
+.psych-warning .warning-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--green);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.psych-warning p {
+    margin: 0;
+}
+
+/* =========================================================
+   THERAPIST SIGNATURE
+   ========================================================= */
+
+.signature {
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top: 1px dotted #29382d;
+
+    color: #66736a;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   PSYCHOLOGICAL MONITORING NOTICE
+   ========================================================= */
+
+.monitoring-notice {
+    position: relative;
+
+    margin-top: 15px;
+
+    padding: 20px 22px;
+
+    border: 1px solid var(--red-dark);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,0,30,.055),
+            rgba(30,0,5,.025)
+        );
+
+    color: #bfc6c1;
+
+    font-size: 12px;
+    line-height: 1.8;
+
+    overflow: hidden;
+}
+
+.monitoring-notice::before {
+    content: "MONITORING // ACTIVE // PSYCH-01";
+
+    position: absolute;
+
+    top: 7px;
+    right: 15px;
+
+    color: rgba(255,50,70,.22);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.monitoring-header {
+    margin-bottom: 12px;
+
+    color: var(--red);
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.monitoring-notice p {
+    margin: 8px 0;
+}
+
+/* =========================================================
    CORRUPTED DATA
    ========================================================= */
 
 .corruption {
     position: relative;
+
     margin: 30px 0;
+
     padding: 25px;
 
     border: 1px solid var(--red-dark);
+
     background:
         linear-gradient(
             90deg,
@@ -572,11 +873,14 @@ body::after {
 
 .corruption::before {
     content: "████ ERROR ████ ERROR ████ ERROR ████";
+
     position: absolute;
+
     top: 5px;
     right: -50px;
 
     color: rgba(255,40,60,.15);
+
     font-size: 10px;
 
     transform: rotate(3deg);
@@ -584,8 +888,10 @@ body::after {
 
 .corrupt-text {
     color: #ff5663;
+
     font-size: 12px;
     line-height: 1.8;
+
     word-break: break-all;
 }
 
@@ -595,7 +901,9 @@ body::after {
 
 .terminal {
     background: #010201;
+
     border: 1px solid #29382d;
+
     padding: 20px;
 
     font-size: 12px;
@@ -621,14 +929,19 @@ body::after {
 
 .cursor {
     display: inline-block;
+
     width: 7px;
     height: 14px;
+
     background: var(--green);
+
     animation: cursorBlink 1s infinite;
+
     vertical-align: middle;
 }
 
 @keyframes cursorBlink {
+
     50% {
         opacity: 0;
     }
@@ -641,7 +954,9 @@ body::after {
 .redacted {
     background: #000;
     color: #000;
+
     padding: 0 8px;
+
     user-select: none;
 }
 
@@ -660,10 +975,12 @@ body::after {
 
     display: flex;
     justify-content: space-between;
+
     gap: 15px;
     flex-wrap: wrap;
 
     color: #465449;
+
     font-size: 9px;
     letter-spacing: 2px;
 }
@@ -678,6 +995,7 @@ body::after {
 
 .static {
     position: fixed;
+
     pointer-events: none;
     z-index: 9996;
 
@@ -693,6 +1011,7 @@ body::after {
 }
 
 @keyframes staticJump {
+
     0%, 94%, 100% {
         transform: translateY(0);
         opacity: 0;
@@ -747,6 +1066,11 @@ body::after {
     .header {
         padding: 20px;
     }
+
+    .page-navigation {
+        padding: 12px 20px;
+    }
+
 }
 </style>
 </head>
@@ -764,8 +1088,15 @@ body::after {
     <header class="header">
 
         <div class="classification">
-            <span>SCP FOUNDATION // INTERNAL PERSONNEL DATABASE</span>
-            <span>GENSEC / SEC-03</span>
+
+            <span>
+                SCP FOUNDATION // INTERNAL PERSONNEL DATABASE
+            </span>
+
+            <span>
+                GENSEC / SEC-03
+            </span>
+
         </div>
 
         <div
@@ -780,9 +1111,12 @@ body::after {
         </div>
 
         <div class="warning">
+
             ⚠ WARNING: PERSONNEL RECORD INTEGRITY COMPROMISED //
             MULTIPLE DATA SEGMENTS FAILING VALIDATION //
-            LAST VERIFIED COPY: <span class="redacted">██████████</span>
+            LAST VERIFIED COPY:
+            <span class="redacted">██████████</span>
+
         </div>
 
     </header>
@@ -793,9 +1127,40 @@ body::after {
          ===================================================== -->
 
     <div class="access">
-        <span>ACCESSING: PERSONNEL/GENSEC/BELMONT-R</span>
-        <span>STATUS: [ UNSTABLE ]</span>
+
+        <span>
+            ACCESSING: PERSONNEL/GENSEC/BELMONT-R
+        </span>
+
+        <span>
+            STATUS: [ UNSTABLE ]
+        </span>
+
     </div>
+
+
+    <!-- =====================================================
+         PAGE NAVIGATION
+         ===================================================== -->
+
+    <nav class="page-navigation">
+
+        <a
+            href="relations.html"
+            class="nav-button"
+        >
+
+            <span>
+                [ ACCESS RELATIONAL DATA ]
+            </span>
+
+            <small>
+                GENSEC // PERSONNEL NETWORK
+            </small>
+
+        </a>
+
+    </nav>
 
 
     <section class="content">
@@ -818,87 +1183,213 @@ body::after {
                 <div class="profile-data">
 
                     <div class="data">
-                        <span class="label">Legal Name</span>
-                        <span class="value glitch" data-text="Rios Belmont">
+
+                        <span class="label">
+                            Legal Name
+                        </span>
+
+                        <span
+                            class="value glitch"
+                            data-text="Rios Belmont"
+                        >
                             Rios Belmont
                         </span>
+
                     </div>
 
+
                     <div class="data">
-                        <span class="label">Operational Codename</span>
+
+                        <span class="label">
+                            Operational Codename
+                        </span>
+
                         <span class="value danger">
                             'FELWINTER'
                         </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Sex</span>
-                        <span class="value">MALE</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Age</span>
-                        <span class="value">40</span>
+
+                        <span class="label">
+                            Sex
+                        </span>
+
+                        <span class="value">
+                            MALE
+                        </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Date of Birth</span>
-                        <span class="value">08-04-1986</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Birthplace</span>
-                        <span class="value">MANITOULIN ISLAND, CANADA</span>
+
+                        <span class="label">
+                            Age
+                        </span>
+
+                        <span class="value">
+                            40
+                        </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Clearance</span>
-                        <span class="value danger">LEVEL 3</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Department</span>
-                        <span class="value">GENERAL SECURITY DEPARTMENT</span>
+
+                        <span class="label">
+                            Date of Birth
+                        </span>
+
+                        <span class="value">
+                            08-04-1986
+                        </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Occupation</span>
-                        <span class="value">GENSEC OFFICER</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Relationship Status</span>
-                        <span class="value">SINGLE / WIDOWER</span>
+
+                        <span class="label">
+                            Birthplace
+                        </span>
+
+                        <span class="value">
+                            MANITOULIN ISLAND, CANADA
+                        </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Blood Type</span>
-                        <span class="value danger">A POS</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Height</span>
-                        <span class="value">6'4" / 193 CM</span>
+
+                        <span class="label">
+                            Clearance
+                        </span>
+
+                        <span class="value danger">
+                            LEVEL 3
+                        </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Weight</span>
-                        <span class="value">240 LBS</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Hair</span>
-                        <span class="value">BLACK</span>
+
+                        <span class="label">
+                            Department
+                        </span>
+
+                        <span class="value">
+                            GENERAL SECURITY DEPARTMENT
+                        </span>
+
                     </div>
 
-                    <div class="data">
-                        <span class="label">Right Eye</span>
-                        <span class="value blue">BLUE</span>
-                    </div>
 
                     <div class="data">
-                        <span class="label">Left Eye</span>
-                        <span class="value danger">GLASS PROSTHETIC</span>
+
+                        <span class="label">
+                            Occupation
+                        </span>
+
+                        <span class="value">
+                            GENSEC OFFICER
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Relationship Status
+                        </span>
+
+                        <span class="value">
+                            SINGLE / WIDOWER
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Blood Type
+                        </span>
+
+                        <span class="value danger">
+                            A POS
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Height
+                        </span>
+
+                        <span class="value">
+                            6'4" / 193 CM
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Weight
+                        </span>
+
+                        <span class="value">
+                            240 LBS
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Hair
+                        </span>
+
+                        <span class="value">
+                            BLACK
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Right Eye
+                        </span>
+
+                        <span class="value blue">
+                            BLUE
+                        </span>
+
+                    </div>
+
+
+                    <div class="data">
+
+                        <span class="label">
+                            Left Eye
+                        </span>
+
+                        <span class="value danger">
+                            GLASS PROSTHETIC
+                        </span>
+
                     </div>
 
                 </div>
@@ -921,26 +1412,43 @@ body::after {
             <div class="dossier">
 
                 <div class="card">
-                    <h3>OCULAR DAMAGE</h3>
+
+                    <h3>
+                        OCULAR DAMAGE
+                    </h3>
+
                     <p>
                         Left eye replaced with glass prosthetic.
                         Extensive claw scarring surrounding orbital region.
                     </p>
+
                 </div>
 
+
                 <div class="card">
-                    <h3>BODY CONDITION</h3>
+
+                    <h3>
+                        BODY CONDITION
+                    </h3>
+
                     <p>
                         Numerous scars distributed across torso.
                         Origin of several wounds remains undocumented.
                     </p>
+
                 </div>
 
+
                 <div class="card">
-                    <h3>IDENTIFYING MARK</h3>
+
+                    <h3>
+                        IDENTIFYING MARK
+                    </h3>
+
                     <p>
                         Wolf-head brand located on left breast.
                     </p>
+
                 </div>
 
             </div>
@@ -961,29 +1469,56 @@ body::after {
             <div class="markings">
 
                 <p>
-                    <strong>LEFT BREAST:</strong><br>
+
+                    <strong>
+                        LEFT BREAST:
+                    </strong>
+
+                    <br>
+
                     Wolf-head branding. Exact origin classified.
+
                 </p>
 
+
                 <p>
-                    <strong>LEFT ARM:</strong><br>
+
+                    <strong>
+                        LEFT ARM:
+                    </strong>
+
+                    <br>
+
                     Tattoo depicting a "Broadway" poker hand.
                     The ace position has been replaced with a
                     Five-SeveN pistol.
+
                 </p>
+
 
                 <p>
                     Surrounding scroll contains the phrase:
                 </p>
 
+
                 <p class="danger">
+
                     "FOLDING IS NEVER AN OPTION"
+
                 </p>
 
+
                 <p>
-                    <strong>LEFT EYE / ORBIT:</strong><br>
+
+                    <strong>
+                        LEFT EYE / ORBIT:
+                    </strong>
+
+                    <br>
+
                     Extensive claw scars. Pattern does not correspond
                     to any standard GENSEC training injury.
+
                 </p>
 
             </div>
@@ -1015,6 +1550,7 @@ body::after {
 
                 </div>
 
+
                 <div class="family-member deceased">
 
                     <div class="family-name">
@@ -1033,6 +1569,226 @@ body::after {
 
 
         <!-- =================================================
+             PERSONNEL BIOGRAPHY
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                PERSONNEL BIOGRAPHY
+            </div>
+
+            <div class="biography">
+
+                <p>
+                    Rios Belmont was born on Manitoulin Island in Canada,
+                    growing up alone by the time he turned 12 as his father
+                    had abandoned him, while his mother died due to an
+                    undisclosed sickness.
+                </p>
+
+
+                <p>
+                    Growing up on the streets, stealing whatever he could
+                    until he turned 16 where he lied and joined the
+                    Canadian Military.
+                </p>
+
+
+                <p>
+                    Becoming an efficient soldier before being scouted for
+                    JTF2 where his life truly took a turn.
+                </p>
+
+
+                <p>
+                    Upon arriving in JTF2, during his training he was
+                    subject to immense teasing due to his rough upbringing.
+                    This built and built until he snapped on a mission
+                    in Bosnia.
+                </p>
+
+
+                <p>
+                    Severely wounding the operators he was deployed with
+                    before aiding the local Bosnian rebel forces to help
+                    deal with the Serbian forces attacking Bosnia.
+                </p>
+
+
+                <p>
+                    Leading to him being detained by the U.N. Peacekeepers
+                    on ground, sending him back to Canada.
+                </p>
+
+
+                <p>
+                    He was proved guilty, being charged with Treason and
+                    Aiding &amp; Abetting.
+                </p>
+
+
+                <p>
+                    While he was imprisoned awaiting further punishment
+                    is when he was approached by someone representing
+                    The Foundation, who was seeking to use his skills
+                    elsewhere.
+                </p>
+
+
+                <p>
+                    Agreeing to the proposal, he found himself now in
+                    Site-66.
+                </p>
+
+
+                <p>
+                    Battling the anomalies that he himself struggles to
+                    understand, trying to focus on making himself better
+                    yet finding it difficult.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PSYCHOLOGICAL EVALUATION
+             ================================================= -->
+
+        <section class="section">
+
+            <div class="section-title">
+                PSYCHOLOGICAL EVALUATION
+            </div>
+
+            <div class="psych-evaluation">
+
+                <div class="evaluation-header">
+
+                    PRE-SCREENING EVALUATION //
+                    PERSONNEL PSYCHOLOGY
+
+                </div>
+
+
+                <p>
+                    Pre-screening of Rios confirmed what was already shown,
+                    he is stubborn to a fault and will very often say his
+                    mind not caring about the consequences.
+                </p>
+
+
+                <p>
+                    Paired with his Insomnia and Paranoia makes him a truly
+                    haunting person to ever anger, yet if angered. He
+                    exhibits attitude and actions almost akin to a raging
+                    bull, making him far easy to predict.
+                </p>
+
+
+                <p>
+                    Whenever he is in mental distress, he will often
+                    subconsciously thumb over his wife's dog tags.
+                </p>
+
+
+                <p>
+                    When he was approached on this, he said it was his old
+                    dog tags from before he was with the Foundation.
+                </p>
+
+
+                <p>
+                    He was questioned on what happened to his wife,
+                    and simply said:
+                </p>
+
+
+                <blockquote>
+
+                    "She died in a bad way, was my fault...
+                    should've been careful."
+
+                </blockquote>
+
+
+                <div class="psych-warning">
+
+                    <span class="warning-label">
+                        PSYCHOLOGICAL RECOMMENDATION
+                    </span>
+
+                    <p>
+                        Recommendation is to not bring up his wife and
+                        instead try to focus him on his daughter who he
+                        loves and cares with all his heart.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    Overall while he is fit for active duty, he is to be
+                    watched to ensure his attitude or psyche does not slip.
+                    Should it, he is to be sent for immediate psychological
+                    testing and/or therapy.
+                </p>
+
+
+                <div class="signature">
+
+                    — Therapist
+                    <span class="redacted">
+                        REDACTED
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 PSYCHOLOGICAL MONITORING NOTICE
+                 ============================================= -->
+
+            <div class="monitoring-notice">
+
+                <div class="monitoring-header">
+                    PSYCHOLOGICAL MONITORING NOTICE
+                </div>
+
+
+                <p>
+                    Personnel assigned to 'Felwinter' are advised to
+                    monitor significant behavioral changes, emotional
+                    distress, and indications of psychological instability.
+                </p>
+
+
+                <p class="danger">
+                    Do not unnecessarily provoke or antagonize subject.
+                </p>
+
+
+                <p>
+                    Any changes in their behavior is to be reported to
+                    <span class="danger">
+                        GENSEC CPT 'Reaper'
+                    </span>
+                    and
+                    <span class="blue">
+                        SMO 'Paracelsus'
+                    </span>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
              CORRUPTION EVENT
              ================================================= -->
 
@@ -1042,21 +1798,35 @@ body::after {
                 AUTOMATED INTEGRITY REPORT
             </div>
 
+
             <div class="corrupt-text">
+
                 [ERR-00A7] PERSONNEL DATA HASH MISMATCH<br>
+
                 [ERR-11F2] BIOLOGICAL RECORD CONFLICT<br>
+
                 [ERR-19C4] RELATIONAL RECORD CONFLICT<br>
+
                 [ERR-22D9] OCULAR STATUS VALIDATION FAILED<br>
+
                 [ERR-████] SUBJECT DESIGNATION DUPLICATED<br>
+
                 [ERR-████] SUBJECT DESIGNATION DUPLICATED<br>
+
                 [ERR-████] SUBJECT DESIGNATION DUPLICATED<br>
+
                 <br>
+
                 R̷E̵C̴O̵R̴D̵ ̵I̴N̵T̸E̷G̵R̴I̵T̵Y̶:̴ ̷4̷3̴%̶
+
                 <br>
                 <br>
+
                 WARNING:
+
                 THIS RECORD MAY NOT REPRESENT THE CURRENT STATE
                 OF THE SUBJECT.
+
             </div>
 
         </div>
@@ -1072,72 +1842,127 @@ body::after {
                 SYSTEM TERMINAL
             </div>
 
+
             <div class="terminal">
 
                 <div>
-                    <span class="prompt">GENSEC@SITE-██</span>:
-                    <span class="dim">~/personnel/</span>$
+
+                    <span class="prompt">
+                        GENSEC@SITE-██
+                    </span>:
+
+                    <span class="dim">
+                        ~/personnel/
+                    </span>$
+
                     cat BELMONT_RIOS.dat
+
                 </div>
+
 
                 <div class="dim">
                     Loading personnel file...
                 </div>
 
+
                 <div class="dim">
                     Loading █████████████...
                 </div>
 
+
                 <div>
-                    <span class="prompt">IDENTITY:</span>
+
+                    <span class="prompt">
+                        IDENTITY:
+                    </span>
+
                     RIOS BELMONT
+
                 </div>
 
+
                 <div>
-                    <span class="prompt">CODENAME:</span>
+
+                    <span class="prompt">
+                        CODENAME:
+                    </span>
+
                     'FELWINTER'
+
                 </div>
 
+
                 <div>
-                    <span class="prompt">DEPARTMENT:</span>
+
+                    <span class="prompt">
+                        DEPARTMENT:
+                    </span>
+
                     GENSEC
+
                 </div>
+
 
                 <div>
-                    <span class="prompt">CLEARANCE:</span>
+
+                    <span class="prompt">
+                        CLEARANCE:
+                    </span>
+
                     LEVEL 3
+
                 </div>
+
 
                 <div class="error">
                     ERROR: ADDITIONAL RECORD DETECTED
                 </div>
 
-                <div class="error">
-                    ERROR: ADDITIONAL RECORD DETECTED
-                </div>
 
                 <div class="error">
                     ERROR: ADDITIONAL RECORD DETECTED
                 </div>
+
+
+                <div class="error">
+                    ERROR: ADDITIONAL RECORD DETECTED
+                </div>
+
 
                 <br>
 
+
                 <div>
-                    <span class="prompt">SYSTEM:</span>
+
+                    <span class="prompt">
+                        SYSTEM:
+                    </span>
+
                     Attempting recovery...
+
                 </div>
 
+
                 <div class="dim">
+
                     ████████████████████████████ 17%
+
                 </div>
+
 
                 <div class="error">
                     RECOVERY ABORTED.
                 </div>
 
+
                 <div>
-                    <span class="prompt">GENSEC@SITE-██</span>:
+
+                    <span class="prompt">
+                        GENSEC@SITE-██
+                    </span>:
+
                     <span class="cursor"></span>
+
                 </div>
 
             </div>
@@ -1155,6 +1980,7 @@ body::after {
                 ADMINISTRATIVE NOTICE
             </div>
 
+
             <div class="markings">
 
                 <p>
@@ -1162,18 +1988,23 @@ body::after {
                     personnel possessing the appropriate clearance.
                 </p>
 
+
                 <p class="danger">
                     DO NOT ATTEMPT TO RESTORE CORRUPTED RECORD SEGMENTS.
                 </p>
+
 
                 <p>
                     Previous attempts at manual restoration have resulted
                     in additional discrepancies within the personnel archive.
                 </p>
 
+
                 <p class="dim">
+
                     If the subject identifies himself as "Felwinter",
                     continue normal GENSEC identification procedures.
+
                 </p>
 
             </div>
@@ -1205,6 +2036,7 @@ body::after {
 
 </main>
 
+
 <script>
 
 /* =========================================================
@@ -1214,8 +2046,10 @@ body::after {
 const corruptionChars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789█▓▒░@#$%&!?";
 
+
 const glitchElements =
     document.querySelectorAll(".glitch");
+
 
 function corruptText(element) {
 
@@ -1228,20 +2062,33 @@ function corruptText(element) {
     for (let i = 0; i < original.length; i++) {
 
         if (Math.random() < 0.06) {
+
             result += corruptionChars[
-                Math.floor(Math.random() * corruptionChars.length)
+                Math.floor(
+                    Math.random() *
+                    corruptionChars.length
+                )
             ];
+
         } else {
+
             result += original[i];
+
         }
+
     }
 
     element.textContent = result;
 
+
     setTimeout(() => {
+
         element.textContent = original;
+
     }, 80 + Math.random() * 180);
+
 }
+
 
 setInterval(() => {
 
@@ -1249,10 +2096,14 @@ setInterval(() => {
 
         const element =
             glitchElements[
-                Math.floor(Math.random() * glitchElements.length)
+                Math.floor(
+                    Math.random() *
+                    glitchElements.length
+                )
             ];
 
         corruptText(element);
+
     }
 
 }, 900);
@@ -1267,12 +2118,18 @@ setInterval(() => {
     if (Math.random() < 0.12) {
 
         document.querySelector(".file").style.transform =
-            `translate(${(Math.random() * 4 - 2)}px,
-                        ${(Math.random() * 3 - 1.5)}px)`;
+            `translate(
+                ${(Math.random() * 4 - 2)}px,
+                ${(Math.random() * 3 - 1.5)}px
+            )`;
+
 
         setTimeout(() => {
+
             document.querySelector(".file").style.transform = "";
+
         }, 60);
+
     }
 
 }, 1200);
@@ -1282,32 +2139,51 @@ setInterval(() => {
    TERMINAL CORRUPTION
    ========================================================= */
 
-const terminal = document.querySelector(".terminal");
+const terminal =
+    document.querySelector(".terminal");
+
 
 setInterval(() => {
 
     if (Math.random() < .18) {
 
-        const flash = document.createElement("div");
+        const flash =
+            document.createElement("div");
 
         flash.className = "error";
 
+
         flash.textContent =
             "[SYSTEM] " +
+
             Array.from(
-                {length: Math.floor(Math.random() * 20) + 8},
+                {
+                    length:
+                        Math.floor(
+                            Math.random() * 20
+                        ) + 8
+                },
+
                 () =>
                     corruptionChars[
-                        Math.floor(Math.random() *
-                        corruptionChars.length)
+                        Math.floor(
+                            Math.random() *
+                            corruptionChars.length
+                        )
                     ]
+
             ).join("");
+
 
         terminal.appendChild(flash);
 
+
         setTimeout(() => {
+
             flash.remove();
+
         }, 500);
+
     }
 
 }, 1700);
@@ -1316,4 +2192,3 @@ setInterval(() => {
 
 </body>
 </html>
-```
